@@ -10,7 +10,8 @@ if not api_key:
 
 genai.configure(api_key=api_key)
 # Use a supported Gemini model; override with GEMINI_MODEL if provided
-MODEL_NAME = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
+# Prefer fully qualified model IDs that support generateContent.
+MODEL_NAME = os.getenv("GEMINI_MODEL", "models/gemini-1.5-flash")
 model = genai.GenerativeModel(MODEL_NAME)
 
 
