@@ -10,6 +10,13 @@ This project implements a complete AI-powered review feedback system with two ma
 ## Task 1: Rating Prediction Notebook
 
 ### Implementation
+- Dataset: Kaggle Yelp Reviews (downloaded via kagglehub)
+- Prompts: Zero-Shot, Few-Shot, Chain-of-Thought
+- Latest metrics (sampled 10 reviews, 1s throttle):
+  - Few-Shot: 70% exact, 100% within ±1, JSON 100%, avg latency ~6.63s
+  - Zero-Shot: 50% exact, 100% within ±1, JSON 100%, avg latency ~4.36s (fastest)
+  - Chain-of-Thought: 50% exact, 100% within ±1, JSON 100%, avg latency ~7.82s
+  - Metrics are indicative due to sample size/quota limits.
 
 - **Three Prompting Approaches**:
   1. **Zero-Shot**: Direct classification without examples

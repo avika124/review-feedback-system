@@ -116,8 +116,9 @@ GEMINI_API_KEY=your_api_key_here
 ## Features
 
 ### Task 1
-- Three prompting approaches for rating prediction
-- Comprehensive evaluation metrics
+- Kaggle Yelp Reviews dataset via kagglehub
+- Three prompting approaches for rating prediction (Zero-Shot, Few-Shot, CoT)
+- Latest metrics (sampled 10 reviews, 1s throttle): Few-Shot 70% exact / 100% within ±1 / JSON 100% (~6.63s avg); Zero-Shot 50% exact / 100% within ±1 / JSON 100% (~4.36s avg, fastest); CoT 50% exact / 100% within ±1 / JSON 100% (~7.82s avg). Metrics indicative due to sample size/quota.
 - Comparison analysis and visualizations
 
 ### Task 2
