@@ -1,0 +1,32 @@
+Fynd AI Intern Take-Home Assessment Report
+
+1. Introduction
+This report summarizes the AI-powered review feedback system with two main components: (a) a Jupyter notebook for Yelp star rating prediction via prompting, and (b) a two-dashboard web application (User + Admin) with LLM-generated responses, summaries, and recommendations.
+
+2. Task 1: Rating Prediction
+- Approaches: Zero-Shot, Few-Shot (5 examples, one per rating), Chain-of-Thought (structured reasoning).
+- Prompt designs: Clear JSON output schema { "predicted_stars": n, "explanation": "..." }; Few-Shot includes diverse examples; CoT guides sentiment, aspects, overall satisfaction, then rating.
+- Evaluation: Exact accuracy, within ±1 accuracy, JSON validity rate, average/STD latency; confusion matrix for best approach; comparison table across approaches.
+- Findings: Best approach determined by running notebook (depends on live model responses); CoT generally improves reasoning, Few-Shot improves format reliability, Zero-Shot is fastest. JSON validity high due to robust parsing.
+
+3. Task 2: Dashboard System
+- Architecture: FastAPI backend (LLM calls + JSON persistence) and React/Vite frontend (User + Admin routes). LLM service wraps Gemini with model override (GEMINI_MODEL). Data stored in task2/data/reviews.json with schema id, timestamp, rating, review, ai_response, ai_summary, recommended_actions.
+- Tech stack: FastAPI, Python; React, Vite, Tailwind; Recharts for charts; Axios for API calls.
+- LLM integration: Prompts for user responses, admin summaries, recommended actions; retry/error handling.
+- Features:
+  * User Dashboard: star rating input, review textarea, AI response display.
+  * Admin Dashboard: live submissions table with truncation/expand, filters (rating, keyword), pagination, auto-refresh; analytics (avg rating, total, distribution bar chart, trend line chart); recommended actions list.
+
+4. Deployment Details
+- Backend: Render-ready (render.yaml) with buildCommand upgrading pip/setuptools/wheel and installing task2/backend/requirements.txt; start via uvicorn main:app --host 0.0.0.0 --port $PORT; env GEMINI_API_KEY (and optional GEMINI_MODEL, PYTHON_VERSION=3.11).
+- Frontend: Vercel/Netlify; set VITE_API_URL to backend URL; npm run build. Local dev: npm run dev (port 5173) proxied to backend 8000.
+- Shared data source: task2/data/reviews.json (JSON file); can swap to DB in production.
+
+5. Conclusion
+Delivered notebook with three prompting strategies, evaluation, and visualizations; delivered functional two-dashboard web app with LLM responses, summaries, recommendations, analytics, filters, and persistence. Ready for deployment with provided render.yaml and env instructions.
+
+Appendix: Setup
+- Notebook: pip install -r task1/requirements.txt; set GEMINI_API_KEY (and optional GEMINI_MODEL=gemini-1.5-flash); jupyter notebook task1/rating_prediction.ipynb.
+- Backend: pip install -r task2/backend/requirements.txt; uvicorn main:app --reload.
+- Frontend: npm install; npm run dev.
+

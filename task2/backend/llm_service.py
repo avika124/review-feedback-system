@@ -9,7 +9,9 @@ if not api_key:
     raise ValueError("GEMINI_API_KEY environment variable not set")
 
 genai.configure(api_key=api_key)
-model = genai.GenerativeModel('gemini-pro')
+# Use a supported Gemini model; override with GEMINI_MODEL if provided
+MODEL_NAME = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
+model = genai.GenerativeModel(MODEL_NAME)
 
 
 def generate_user_response(rating: int, review_text: str) -> str:
