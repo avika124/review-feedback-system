@@ -1,7 +1,5 @@
 """LLM service for generating AI responses, summaries, and recommendations"""
 import os
-from dotenv import load_dotenv
-load_dotenv()
 import google.generativeai as genai
 from typing import Dict, List
 
