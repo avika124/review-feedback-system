@@ -12,10 +12,10 @@ This project implements a complete AI-powered review feedback system with two ma
 ### Implementation
 - Dataset: Kaggle Yelp Reviews (downloaded via kagglehub)
 - Prompts: Zero-Shot, Few-Shot, Chain-of-Thought
-- Latest metrics (sampled 10 reviews, 1s throttle):
-  - Few-Shot: 70% exact, 100% within ±1, JSON 100%, avg latency ~6.63s
-  - Zero-Shot: 50% exact, 100% within ±1, JSON 100%, avg latency ~4.36s (fastest)
-  - Chain-of-Thought: 50% exact, 100% within ±1, JSON 100%, avg latency ~7.82s
+- Latest metrics (sampled ~200 reviews, 1s throttle):
+  - Few-Shot: 57% exact, 94% within ±1, JSON 100%, avg latency ~6.16s
+  - Zero-Shot: 51% exact, 93.5% within ±1, JSON 100%, avg latency ~5.19s (fastest)
+  - Chain-of-Thought: 51.5% exact, 93% within ±1, JSON 100%, avg latency ~7.99s
   - Metrics are indicative due to sample size/quota limits.
 
 - **Three Prompting Approaches**:

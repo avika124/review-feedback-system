@@ -118,7 +118,7 @@ GEMINI_API_KEY=your_api_key_here
 ### Task 1
 - Kaggle Yelp Reviews dataset via kagglehub
 - Three prompting approaches for rating prediction (Zero-Shot, Few-Shot, CoT)
-- Latest metrics (sampled 10 reviews, 1s throttle): Few-Shot 70% exact / 100% within ±1 / JSON 100% (~6.63s avg); Zero-Shot 50% exact / 100% within ±1 / JSON 100% (~4.36s avg, fastest); CoT 50% exact / 100% within ±1 / JSON 100% (~7.82s avg). Metrics indicative due to sample size/quota.
+- Latest metrics (sampled ~200 reviews, 1s throttle): Few-Shot 57% exact / 94% within ±1 / JSON 100% (~6.16s avg); Zero-Shot 51% exact / 93.5% within ±1 / JSON 100% (~5.19s avg, fastest); CoT 51.5% exact / 93% within ±1 / JSON 100% (~7.99s avg). Metrics indicative due to sample size/quota.
 - Comparison analysis and visualizations
 
 ### Task 2
